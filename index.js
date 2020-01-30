@@ -47,6 +47,10 @@ const argv = require('yargs')
             'margin-left': {
                 default: '6.25mm'
             },
+            'media-type': {
+                string: true,
+                default: 'print'
+            },
             'format': {
                 default: 'Letter'
             },
@@ -114,6 +118,10 @@ async function print(argv) {
     if (argv.cookie) {
         console.error(`Setting cookies`);
         await page.setCookie(...buildCookies(argv));
+    }
+
+    if (argv['media-type']) {
+        page.emulateMedia(argv['media-type']);
     }
 
     console.error(`Loading ${url}`);
