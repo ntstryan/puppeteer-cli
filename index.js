@@ -19,6 +19,9 @@ const commonOptions = {
         string: true,
         default: 'load'
     },
+    'window-status': {
+        string: true
+    },
     'cookie': {
         describe: 'Set a cookie in the form "key:value". May be repeated for multiple cookies.',
         type: 'string'
@@ -118,6 +121,11 @@ async function print(argv) {
 
     console.error(`Loading ${url}`);
     await page.goto(url, buildNavigationOptions(argv));
+
+    if (argv['window-status']) {
+        console.error(`Waiting for window.status=='${argv['window-status']}'`);
+        await page.waitForFunction(`window.status=='${argv['window-status']}'`);
+    }
 
     console.error(`Writing ${argv.output || 'STDOUT'}`);
     const buffer = await page.pdf({
