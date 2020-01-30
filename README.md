@@ -28,6 +28,7 @@ Options:
   --margin-right                                             [default: "6.25mm"]
   --margin-bottom                                           [default: "14.11mm"]
   --margin-left                                              [default: "6.25mm"]
+  --media-type                                       [string] [default: "print"]
   --format                                                   [default: "Letter"]
   --landscape                                         [boolean] [default: false]
   --display-header-footer                             [boolean] [default: false]
