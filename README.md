@@ -21,6 +21,7 @@ Options:
   --sandbox                                            [boolean] [default: true]
   --timeout                                            [number] [default: 30000]
   --wait-until                                        [string] [default: "load"]
+  --window-status          Wait for matching window.status to print.    [string]
   --cookie                 Set a cookie in the form "key:value". May be repeated
                            for multiple cookies.                        [string]
   --background                                         [boolean] [default: true]
@@ -46,6 +47,7 @@ Options:
   --sandbox                                            [boolean] [default: true]
   --timeout                                            [number] [default: 30000]
   --wait-until                                        [string] [default: "load"]
+  --window-status    Wait for matching window.status to capture.        [string]
   --cookie           Set a cookie in the form "key:value". May be repeated for
                      multiple cookies.                                  [string]
   --full-page                                          [boolean] [default: true]
