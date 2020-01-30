@@ -181,6 +181,11 @@ async function screenshot(argv) {
     console.error(`Loading ${url}`);
     await page.goto(url, buildNavigationOptions(argv));
 
+    if (argv['window-status']) {
+        console.error(`Waiting for window.status=='${argv['window-status']}'`);
+        await page.waitForFunction(`window.status=='${argv['window-status']}'`);
+    }
+
     console.error(`Writing ${argv.output || 'STDOUT'}`);
     const buffer = await page.screenshot({
         path: argv.output || null,
